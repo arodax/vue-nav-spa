@@ -1,0 +1,46 @@
+{
+  "name": "@arodax/vue-nav-spa",
+  "description": "Navigation for Single Page Applications",
+  "version": "1.0.0",
+  "keywords": [
+    "vue",
+    "vue-plugin",
+    "vue-component",
+    "scrollspy",
+    "scroll",
+    "smoothscroll"
+  ],
+  "homepage": "https://github.com/arodax/vue-nav-spa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arodax/vue-nav-spa.git"
+  },
+  "bugs": "https://github.com/arodax/vue-nav-spa/issues",
+  "maintainers": [
+    {
+      "name": "ARODAX a.s.",
+      "email": "info@arodax.com",
+      "web": "www.arodax.com"
+    }
+  ],
+  "authors": {
+    "name": "Daniel Chodusov",
+    "email": "daniel@chodusov.com"
+  },
+  "contributors":  [
+    {
+      "name": "Daniel Chodusov",
+      "email": "daniel@chodusov.com"
+    }
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --progress --hide-modules --mode=development",
+    "watch": "webpack --progress --hide-modules --watch --mode=development",
+    "prod": "webpack --progress --hide-modules --mode=production"
+  },
+  "dependencies": {
+    "bezier-easing": "^2.1.0"
+  }
+}
