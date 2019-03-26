@@ -1,7 +1,7 @@
 {
   "name": "@arodax/vue-nav-spa",
   "description": "Navigation for Single Page Applications",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "vue",
     "vue-plugin",

@@ -64,7 +64,7 @@ property at `<nav-spa>` tag.
 | `bezier-easing-value` | String   | `.5,0,.35,1`     | Your custom easing value for the click to scroll functionality. It must be a string with 4 values separated by commas in a cubic bezier format. Check [this tool](http://cubic-bezier.com) for generating values.
 | `duration`            | Number   | `500`            | Duration of the scroll animation.
 | `enabled`             | Boolean  | `true`           | Whether is event handler for click event enabled.
-| `link`                | String   | `a`              | Selector for links which observer for click event and added smooth scroll. By default all link in document are handled by smooth scroll.
+| `link`                | String   | `a[href^="#"]`   | Selector for links which observer for click event and added smooth scroll. By default all link in document are handled by smooth scroll.
 | `offset`              | Number   | `0`              | Space between top of the window and the section. This is usually set to your fixed header height.
 | `scroll-container`    | String   | `null`           | Container of the sections, if omitted window will be used.
 | `tag`                 | String   | `nav`            | Component tag, where will be the component rendered.

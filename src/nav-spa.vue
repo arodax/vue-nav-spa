@@ -78,7 +78,7 @@
        */
       link: {
         type: String,
-        default: 'a'
+        default: 'a[href^="#"]'
       },
 
       /**
