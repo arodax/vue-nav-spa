@@ -32,7 +32,7 @@ menu items you want to get highlighted during your scroll. All `<a>` tags
 will be handled by this plugin (or see [advanced usage](#advanced-usage)).
 
 
-##Advanced usage
+## Advanced usage
 
 All links in `<nav-spa>` are handled by this plugin by default. If you want,
 can add custom selector for link which you want to get handled, providing `link`
