@@ -71,6 +71,17 @@
       },
 
       /**
+       * Whether is the first item highlighted.
+       *
+       * @type {Boolean}
+       * @default true
+       */
+      highlightFirstItem: {
+        type: Boolean,
+        default: true
+      },
+
+      /**
        * Selector for links which be observed for the click event.
        *
        * @type {String}
@@ -97,7 +108,7 @@
        * Container of the sections, if omitted window will be used.
        * This value should be valid DOM selector.
        *
-       * @type String
+       * @type {String}
        * @default null
        */
       scrollContainer: {
@@ -110,7 +121,7 @@
        * If this method is not supported, in history API, the fallback
        * will be window.location.hash
        *
-       * @type String either replaceState or pushState.
+       * @type {String} either replaceState or pushState.
        * @default pushState
        */
       pushMethod: {
@@ -188,6 +199,7 @@
       if (this.currentItem) this.currentItem.classList.add(this.activeClass)
       this.scrollToHashElement()
       this.getScrollContainer.addEventListener('scroll', this.onScroll)
+      this.getScrollContainer.addEventListener('popstate', this.onPopState)
     },
 
     updated() {
@@ -328,6 +340,24 @@
         })
       },
 
+      /**
+       * Handles onPopState event
+       * This method will scroll to desired element when pushing back button.
+       */
+      onPopState () {
+        const { hash } = window.location
+
+        if ((!hash || hash === '') && !this.highlightFirstItem) return
+
+        if (!hash && this.highlightFirstItem) {
+          this.scrollTo(document.getElementsByTagName('body')[0])
+          return
+        }
+
+        const hashElement = document.querySelector(decodeURI(hash))
+        if (!hashElement) return
+        this.scrollTo(hashElement)
+      },
 
       onScroll (event) {
         this.currentItem = this.getItemInsideWindow()

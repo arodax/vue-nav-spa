@@ -67,19 +67,20 @@ Instead of pushing new hash into history, you can replace it.
 
 ## Props
 
-| attribute             | type     | default          | description
-| ----------------------| -------- | -----------------|------------
-| `active-class`        | String   | `active`         | CSS class displayed at the active link.
-| `always-track`        | Boolean  | `false`          | Defines if the plugin should track the section change when clicking an item to scroll to its section. If set to true, it will always keep track and change the active class to the current section while scrolling, if false, the active class will be immediately applied to the clicked menu item, ignoring the passed sections until the scrolling is over.
-| `bezier-easing-value` | String   | `.5,0,.35,1`     | Your custom easing value for the click to scroll functionality. It must be a string with 4 values separated by commas in a cubic bezier format. Check [this tool](http://cubic-bezier.com) for generating values.
-| `duration`            | Number   | `500`            | Duration of the scroll animation.
-| `enabled`             | Boolean  | `true`           | Whether is event handler for click event enabled.
-| `link`                | String   | `a[href^="#"]`   | Selector for links which observer for click event and added smooth scroll. By default all link in document are handled by smooth scroll.
-| `offset`              | Number   | `0`              | Space between top of the window and the section. This is usually set to your fixed header height.
-| `push-method`         | String   | `pushState`      | Which history API method will be used. pushState or replaceState?
-| `scroll-container`    | String   | `null`           | Container of the sections, if omitted window will be used.
-| `tag`                 | String   | `nav`            | Component tag, where will be the component rendered.
-| `update-hash`         | Boolean  | `true`           | Update hash in URL when section is changed.
+| attribute               | type     | default          | description
+| ------------------------| -------- | -----------------|------------
+| `active-class`          | String   | `active`         | CSS class displayed at the active link.
+| `always-track`          | Boolean  | `false`          | Defines if the plugin should track the section change when clicking an item to scroll to its section. If set to true, it will always keep track and change the active class to the current section while scrolling, if false, the active class will be immediately applied to the clicked menu item, ignoring the passed sections until the scrolling is over.
+| `bezier-easing-value`   | String   | `.5,0,.35,1`     | Your custom easing value for the click to scroll functionality. It must be a string with 4 values separated by commas in a cubic bezier format. Check [this tool](http://cubic-bezier.com) for generating values.
+| `duration`              | Number   | `500`            | Duration of the scroll animation.
+| `enabled`               | Boolean  | `true`           | Whether is event handler for click event enabled.
+| `highlight-first-item`  | Boolean  | `true`           | Whether if the first item always highlighted.
+| `link`                  | String   | `a[href^="#"]`   | Selector for links which observer for click event and added smooth scroll. By default all link in document are handled by smooth scroll.
+| `offset`                | Number   | `0`              | Space between top of the window and the section. This is usually set to your fixed header height.
+| `push-method`           | String   | `pushState`      | Which history API method will be used. pushState or replaceState?
+| `scroll-container`      | String   | `null`           | Container of the sections, if omitted window will be used.
+| `tag`                   | String   | `nav`            | Component tag, where will be the component rendered.
+| `update-hash`           | Boolean  | `true`           | Update hash in URL when section is changed.
 
  
 
@@ -87,7 +88,9 @@ Instead of pushing new hash into history, you can replace it.
 ## Changelog
 
 ### 1.1.0
-- Added push-method property, allowing replacing history instead of overwriting it.  
+- Added push-method property, allowing replacing history instead of overwriting it.
+- Fixed missing `highlight-first-item` property.
+- Added onPopState listener allowing to go back to previous hashes.  
 
 ## Licence
 
