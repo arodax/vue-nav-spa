@@ -34,9 +34,12 @@ will be handled by this plugin (or see [advanced usage](#advanced-usage)).
 
 ## Advanced usage
 
+### Define which links to handle
+
 All links in `<nav-spa>` are handled by this plugin by default. If you want,
 can add custom selector for link which you want to get handled, providing `link`
 property at `<nav-spa>` tag.
+
 
 **All links will be handled:**
 
@@ -55,7 +58,14 @@ property at `<nav-spa>` tag.
 </nav-spa>
 ```
 
-### Props
+### Replacing hash instead of appending
+
+Instead of pushing new hash into history, you can replace it.
+```
+<nav-spa link="custom-class" push-method="replaceState">
+```
+
+## Props
 
 | attribute             | type     | default          | description
 | ----------------------| -------- | -----------------|------------
@@ -66,6 +76,7 @@ property at `<nav-spa>` tag.
 | `enabled`             | Boolean  | `true`           | Whether is event handler for click event enabled.
 | `link`                | String   | `a[href^="#"]`   | Selector for links which observer for click event and added smooth scroll. By default all link in document are handled by smooth scroll.
 | `offset`              | Number   | `0`              | Space between top of the window and the section. This is usually set to your fixed header height.
+| `push-method`         | String   | `pushState`      | Which history API method will be used. pushState or replaceState?
 | `scroll-container`    | String   | `null`           | Container of the sections, if omitted window will be used.
 | `tag`                 | String   | `nav`            | Component tag, where will be the component rendered.
 | `update-hash`         | Boolean  | `true`           | Update hash in URL when section is changed.
@@ -73,7 +84,10 @@ property at `<nav-spa>` tag.
  
 
 
+## Changelog
 
+### 1.1.0
+- Added push-method property, allowing replacing history instead of overwriting it.  
 
 ## Licence
 

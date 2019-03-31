@@ -106,6 +106,20 @@
       },
 
       /**
+       * Specify method which will be used for replacing history state.
+       * If this method is not supported, in history API, the fallback
+       * will be window.location.hash
+       *
+       * @type String either replaceState or pushState.
+       * @default pushState
+       */
+      pushMethod: {
+        type: String,
+        default: 'pushState',
+        validator: (val) => ['pushState', 'replaceState'].includes(val)
+      },
+
+      /**
        * Component tag, where will be the component rendered.
        *
        * @type {String}
@@ -327,14 +341,19 @@
       },
 
       /**
-       * Pushes the given hash to the URL using primarily pushState if available to prevent the
+       * Pushes the given hash to the URL using primarily pushState/replaceState if available to prevent the
        * scroll from jumping to the hash element. Uses window.location.hash as a fallback.
        *
        * @param {String} hash The hash value to be pushed
        */
       pushHashToUrl(hash) {
-        if (window.history.pushState) {
-          window.history.pushState(null, null, hash)
+        if (window.history.pushState || window.history.replaceState) {
+          if (this.pushMethod === 'pushState') {
+            window.history.pushState(null, null, hash)
+          } else {
+            window.history.replaceState(null, null, hash)
+          }
+
           return
         }
         window.location.hash = hash
