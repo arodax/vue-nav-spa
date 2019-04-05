@@ -71,6 +71,17 @@
       },
 
       /**
+       * Whether the smooth scroll feature is enabled or not.
+       *
+       * @type {Boolean}
+       * @default true
+       */
+      enabledSmoothScroll: {
+        type: Boolean,
+        default: true
+      },
+
+      /**
        * Whether is the first item highlighted.
        *
        * @type {Boolean}
@@ -270,7 +281,10 @@
           return
         }
 
-        event.preventDefault()
+        // prevent default scroll behaviour when smooth scroll is enabled
+        if (this.enabledSmoothScroll) {
+          event.preventDefault()
+        }
 
         /*  Temporarily removes the scroll listener and the request animation frame so the active
          *  class will only be applied to the clicked element, and not all elements while the window
@@ -407,6 +421,11 @@
        */
       scrollTo(target) {
         return new Promise((resolve) => {
+
+          if (!this.enabledSmoothScroll) {
+            resolve()
+          }
+
           const targetDistanceFromTop = this.getOffsetTop(target)
           const startingY = this.getScrollContainer.scrollTop || window.pageYOffset
           const difference = targetDistanceFromTop - startingY

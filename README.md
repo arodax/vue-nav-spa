@@ -74,6 +74,7 @@ Instead of pushing new hash into history, you can replace it.
 | `bezier-easing-value`   | String   | `.5,0,.35,1`     | Your custom easing value for the click to scroll functionality. It must be a string with 4 values separated by commas in a cubic bezier format. Check [this tool](http://cubic-bezier.com) for generating values.
 | `duration`              | Number   | `500`            | Duration of the scroll animation.
 | `enabled`               | Boolean  | `true`           | Whether is event handler for click event enabled.
+| `enabled-smooth-scroll` | Boolean  | `true`           | Whether the smooth scroll feature is enabled or not.
 | `highlight-first-item`  | Boolean  | `true`           | Whether if the first item always highlighted.
 | `link`                  | String   | `a[href^="#"]`   | Selector for links which observer for click event and added smooth scroll. By default all link in document are handled by smooth scroll.
 | `offset`                | Number   | `0`              | Space between top of the window and the section. This is usually set to your fixed header height.
@@ -82,10 +83,10 @@ Instead of pushing new hash into history, you can replace it.
 | `tag`                   | String   | `nav`            | Component tag, where will be the component rendered.
 | `update-hash`           | Boolean  | `true`           | Update hash in URL when section is changed.
 
- 
-
-
 ## Changelog
+
+### 1.2.0
+- [feature #1](https://github.com/arodax/vue-nav-spa/issues/1) Added `enabled-smooth-scroll` property to enable/disable smooth scrolling. 
 
 ### 1.1.0
 - Added push-method property, allowing replacing history instead of overwriting it.
