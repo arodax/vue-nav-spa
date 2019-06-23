@@ -1,7 +1,7 @@
 {
   "name": "@arodax/vue-nav-spa",
   "description": "Navigation for Single Page Applications",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "keywords": [
     "vue",
     "vue-plugin",
@@ -27,7 +27,7 @@
     "name": "Daniel Chodusov",
     "email": "daniel@chodusov.com"
   },
-  "contributors":  [
+  "contributors": [
     {
       "name": "Daniel Chodusov",
       "email": "daniel@chodusov.com"
